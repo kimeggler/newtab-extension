@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "NewTab",
+  "description": "Images of Movies. Extensions shows local Weather, Time and Date.",
+  "version": "1",
+  "author": "Jake Prins",
+  "browser_action": {
+    "default_icon": "tab-icon.png",
+    "default_title": "Hello Kim"
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "permissions": ["activeTab"]
+}
