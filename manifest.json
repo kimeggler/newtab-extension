@@ -1,15 +1,18 @@
 {
   "manifest_version": 2,
-  "name": "NewTab",
-  "description": "Images of Movies. Extensions shows local Weather, Time and Date.",
+  "name": "New-Tab",
+  "description": "Beautiful New-Tab-Extension",
   "version": "1",
-  "author": "Jake Prins",
+  "author": "Kim Eggler",
   "browser_action": {
-    "default_icon": "tab-icon.png",
+    "default_icon": "icon.png",
     "default_title": "Hello Kim"
   },
   "chrome_url_overrides": {
     "newtab": "newtab.html"
   },
-  "permissions": ["activeTab"]
+  "content_security_policy": "script-src 'self' https://unpkg.com/axios/dist/axios.min.js; object-src 'self'",
+  "permissions": [
+    "activeTab"
+  ]
 }
