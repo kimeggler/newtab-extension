@@ -2,7 +2,6 @@ window.addEventListener('load', function load(e) {
   init();
 })
 
-
 const init = () => {
   setImage();
   setDateProps();
