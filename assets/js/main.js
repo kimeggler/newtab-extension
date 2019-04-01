@@ -6,6 +6,7 @@ const init = () => {
   setImage();
   setDateProps();
   setWeatherProps();
+  setEventTriggers();
 };
 
 const setImage = () => {
@@ -15,6 +16,40 @@ const setImage = () => {
 
   imgpod.style.backgroundImage = `url(${window.imgArray[image]})`;
 };
+
+const setEventTriggers = () => {
+  let input = document.getElementById("google-search");
+  input.value = "";
+  input.addEventListener("keyup", e => {
+    if (e.code === "Enter") {
+      event.preventDefault();
+      let searchTerm = input.value;
+      window.location = `https://www.google.com/search?&q=${searchTerm}`;
+    }
+    else {
+      null
+    }
+  })
+
+  let searchTrigger = document.getElementById("search-trigger");
+  let searchBar = document.getElementById("search-label");
+  let searchLabel = document.getElementById("google-search");
+  let open = false;
+  searchTrigger.onclick = () => {
+    if (open) {
+      open = false;
+      searchTrigger.style.transform = "rotate(0deg)";
+      searchBar.style.left = "-20000px";
+      searchLabel.style.left = "-20000px";
+    }
+    else {
+      open = true;
+      searchTrigger.style.transform = "rotate(180deg)";
+      searchBar.style.left = "0px";
+      searchLabel.style.left = "0px";
+    }
+  }
+}
 
 const setDateProps = () => {
   const yearelement = document.getElementById("year");
