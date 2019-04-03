@@ -9,6 +9,7 @@ window.addEventListener("load", () => {
     "https://image.tmdb.org/t/p/original/b6ZJZHUdMEFECvGiDpJjlfUWela.jpg",
     "https://image.tmdb.org/t/p/original/5Iw7zQTHVRBOYpA0V6z0yypOPZh.jpg",
     "https://image.tmdb.org/t/p/original/c4Dw37VZjBmObmJw9bmt8IDwMZH.jpg",
-    "https://image.tmdb.org/t/p/original/ypyeMfKydpyuuTMdp36rMlkGDUL.jpg"
+    "https://image.tmdb.org/t/p/original/ypyeMfKydpyuuTMdp36rMlkGDUL.jpg",
+    "https://image.tmdb.org/t/p/original/gIMEoSUJK4G9cYJwew7ZERPj5Pz.jpg"
   ];
 });
