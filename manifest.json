@@ -11,7 +11,7 @@
   "chrome_url_overrides": {
     "newtab": "newtab.html"
   },
-  "content_security_policy": "script-src 'self' https://unpkg.com/axios/dist/axios.min.js; object-src 'self'",
+  "content_security_policy": "script-src 'self' https://unpkg.com/axios/dist/axios.min.js",
   "permissions": [
     "activeTab"
   ]

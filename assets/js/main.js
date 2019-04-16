@@ -1,6 +1,6 @@
-window.addEventListener('load', function load(e) {
+window.addEventListener("load", function load(e) {
   init();
-})
+});
 
 const init = () => {
   setImage();
@@ -18,38 +18,52 @@ const setImage = () => {
 };
 
 const setEventTriggers = () => {
+  //binding key "g" to google search
+  document.onkeyup = e => {
+    if (e.code === "KeyG" && !window.searchOpen) {
+      openGoogleSearchField(window.searchOpen)
+    }
+  };
+
+  //binding key "enter" to execute google search
   let input = document.getElementById("google-search");
   input.value = "";
   input.addEventListener("keyup", e => {
-    if (e.code === "Enter") {
+    if (e.code === "Enter" && window.searchOpen) {
       event.preventDefault();
       let searchTerm = input.value;
       window.location = `https://www.google.com/search?&q=${searchTerm}`;
+    } else {
+      null;
     }
-    else {
-      null
-    }
-  })
+  });
 
+  let searchTrigger = document.getElementById("search-trigger");
+
+  searchTrigger.onclick = () => {
+    openGoogleSearchField(window.searchOpen);
+  };
+};
+
+const openGoogleSearchField = isOpen => {
   let searchTrigger = document.getElementById("search-trigger");
   let searchBar = document.getElementById("search-label");
   let searchLabel = document.getElementById("google-search");
-  let open = false;
-  searchTrigger.onclick = () => {
-    if (open) {
-      open = false;
-      searchTrigger.style.transform = "rotate(0deg)";
-      searchBar.style.left = "-20000px";
-      searchLabel.style.left = "-20000px";
-    }
-    else {
-      open = true;
-      searchTrigger.style.transform = "rotate(180deg)";
-      searchBar.style.left = "0px";
-      searchLabel.style.left = "0px";
-    }
+
+  if (isOpen) {
+    window.searchOpen = false;
+    searchTrigger.style.transform = "rotate(0deg)";
+    searchBar.style.left = "-20000px";
+    searchLabel.style.left = "-20000px";
+    window.focus();
+  } else {
+    window.searchOpen = true;
+    searchTrigger.style.transform = "rotate(180deg)";
+    searchBar.style.left = "0px";
+    searchLabel.style.left = "0px";
+    searchBar.focus();
   }
-}
+};
 
 const setDateProps = () => {
   const yearelement = document.getElementById("year");
