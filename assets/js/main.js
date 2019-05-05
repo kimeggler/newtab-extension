@@ -21,7 +21,7 @@ const setEventTriggers = () => {
   //binding key "g" to google search
   document.onkeyup = e => {
     if (e.code === "KeyG" && !window.searchOpen) {
-      openGoogleSearchField(window.searchOpen)
+      openGoogleSearchField(window.searchOpen);
     }
   };
 
@@ -87,6 +87,7 @@ const setDateProps = () => {
     "December"
   ];
   const Days = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
@@ -105,7 +106,7 @@ const setDateProps = () => {
   const day = date.getDate();
   dayelement.innerHTML = day;
 
-  const dayname = Days[date.getDay() - 1];
+  const dayname = Days[date.getDay()];
   daynameelement.innerHTML = dayname;
 
   console.log(year, month, day, dayname);
