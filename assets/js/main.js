@@ -7,6 +7,8 @@ const init = () => {
   setDateProps();
   setWeatherProps();
   setEventTriggers();
+  setTimeProps();
+  setInterval(setTimeProps, 1000);
 };
 
 const setImage = () => {
@@ -44,6 +46,13 @@ const setEventTriggers = () => {
     openGoogleSearchField(window.searchOpen);
   };
 };
+
+const formatNumber = (num) => {
+  if (num < 10) {
+    return `0${num}`;
+  }
+  return num;
+}
 
 const openGoogleSearchField = isOpen => {
   let searchTrigger = document.getElementById("search-trigger");
@@ -111,6 +120,20 @@ const setDateProps = () => {
 
   console.log(year, month, day, dayname);
 };
+
+const setTimeProps = () => {
+  const hourselement = document.getElementById("hours");
+  const minuteselement = document.getElementById("minutes");
+  const secondselement = document.getElementById("seconds")
+
+  const moment = new Date;
+
+  
+
+  hourselement.innerHTML = formatNumber(moment.getHours());
+  minuteselement.innerHTML = formatNumber(moment.getMinutes());
+  secondselement.innerHTML = formatNumber(moment.getSeconds());
+}
 
 const setWeatherProps = () => {
 
