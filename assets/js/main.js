@@ -113,18 +113,19 @@ const setDateProps = () => {
 };
 
 const setWeatherProps = () => {
-  let city;
-  let temp;
-  let description;
+
+  const degreeelement = document.getElementById("degrees");
+  const weathertypeelement = document.getElementById("participation");
+  const locationelement = document.getElementById("location-name");
+
 
   axios
     .get(
       "https://api.openweathermap.org/data/2.5/weather?id=2658240&units=metric&appid=2f896209f20c442836bf5bba840e4b49"
     )
     .then(response => {
-      city = response.data.name;
-      temp = response.data.main.temp;
-      description = response.data.weather[0].main;
-      console.log(city, temp, description);
+      locationelement.innerHTML = response.data.name;
+      degreeelement.innerHTML = Math.round(response.data.main.temp * 10) / 10;
+      weathertypeelement.innerHTML = response.data.weather[0].main;
     });
 };
