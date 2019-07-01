@@ -15,6 +15,7 @@ window.addEventListener("load", () => {
     "https://image.tmdb.org/t/p/original/d1hQaeKeAW3FBc3v6tIP5utleU0.jpg",
     "https://image.tmdb.org/t/p/original/c8RuOYaTC3tEG85GtQjEtoa7qkl.jpg",
     "https://image.tmdb.org/t/p/original/qOJRRTF9RkYDcpZZAkOv6tsXHuP.jpg",
-    "https://image.tmdb.org/t/p/original/bXBrS7gSuBz8e4svaGDXG9GDgnK.jpg"
+    "https://image.tmdb.org/t/p/original/bXBrS7gSuBz8e4svaGDXG9GDgnK.jpg",
+    "https://image.tmdb.org/t/p/original/qkOw5IZXESOiRH4wzdIYJlBZiCp.jpg"
   ];
 });
