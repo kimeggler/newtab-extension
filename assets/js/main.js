@@ -6,6 +6,7 @@ const init = () => {
   setImage();
   setDateProps();
   setWeatherProps();
+  setWaterProps();
   setEventTriggers();
   setTimeProps();
   setInterval(setTimeProps, 1000);
@@ -137,9 +138,9 @@ const setTimeProps = () => {
 
 const setWeatherProps = () => {
 
-  const degreeelement = document.getElementById("degrees");
+  const degreeelement = document.getElementById("air-temp");
   const weathertypeelement = document.getElementById("participation");
-  const locationelement = document.getElementById("location-name");
+  const locationelement = document.getElementById("air-location");
 
 
   axios
@@ -151,4 +152,23 @@ const setWeatherProps = () => {
       degreeelement.innerHTML = Math.round(response.data.main.temp * 10) / 10;
       weathertypeelement.innerHTML = response.data.weather[0].main;
     });
-};
+}
+
+
+const setWaterProps = () => {
+
+  const degreeelement = document.getElementById("water-temp");
+  const waterforecast = document.getElementById("water-forecast");
+  const flowelement = document.getElementById("water-flow")
+
+
+  axios
+    .get(
+      "https://aareguru.existenz.ch/v2018/current?city=interlaken"
+    )
+    .then(response => {
+      degreeelement.innerHTML = response.data.aare.temperature;
+      waterforecast.innerHTML = response.data.aare.forecast2h_text;
+      flowelement.innerHTML = response.data.aare.flow;
+    });
+}

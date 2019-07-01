@@ -24,10 +24,21 @@
       <input type="text" name="google-search" id="google-search">
     </div>
     <div class='weather-block'>
-      <h1 id='degrees'></h1>
-      <h3 id='degree-label'>&deg;C</h3>
-      <h1 id='participation'></h1>
-      <h3 id='location-name'></h3>
+      <div id="air-temperature">
+        <h3 class="weather-title">Lufttemperatur</h3>
+        <h1 id="air-temp" class='degrees'></h1>
+        <h3 class='degree-label'>&deg;C</h3>
+        <h1 id='participation' class="participation"></h1>
+        <h3 id="air-location" class='location-name'></h3>
+      </div>
+      <div id="water-temperature">
+        <h3 class="weather-title">Wassertemperatur</h3>
+        <h1 id="water-temp" class='degrees'></h1>
+        <h3 class='degree-label'>&deg;C</h3>
+        <h1 id='water-forecast' class="participation"></h1>
+        <h3 id="water-flow" class='flow-label'></h3>
+        <h3 class='flow-label'>m&sup3;/s</h3>
+      </div>
     </div>
     <div class='time-block'>
       <h1 id="hours"></h1>
