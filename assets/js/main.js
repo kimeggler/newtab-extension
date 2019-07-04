@@ -7,6 +7,7 @@ const init = () => {
   setDateProps();
   setWeatherProps();
   setWaterProps();
+  setQuote();
   setEventTriggers();
   setTimeProps();
   setInterval(setTimeProps, 1000);
@@ -129,7 +130,7 @@ const setTimeProps = () => {
 
   const moment = new Date;
 
-  
+
 
   hourselement.innerHTML = formatNumber(moment.getHours());
   minuteselement.innerHTML = formatNumber(moment.getMinutes());
@@ -171,4 +172,16 @@ const setWaterProps = () => {
       waterforecast.innerHTML = response.data.aare.forecast2h_text;
       flowelement.innerHTML = response.data.aare.flow;
     });
+}
+
+
+const setQuote = () => {
+
+  const quoteelement = document.getElementById("quote");
+
+  axios
+    .get("https://api.kanye.rest/")
+    .then(response => {
+      quoteelement.innerHTML = response.data.quote;
+    })
 }
