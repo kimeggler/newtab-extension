@@ -8,6 +8,8 @@ const init = () => {
   setWeatherProps();
   setWaterProps();
   setQuote();
+  setLaunchTimer();
+  startTimerCountdown();
   setEventTriggers();
   setTimeProps();
   setInterval(setTimeProps, 1000);
@@ -184,4 +186,42 @@ const setQuote = () => {
     .then(response => {
       quoteelement.innerHTML = response.data.quote;
     })
+}
+
+const setLaunchTimer = () => {
+
+  const launchtimerdays = document.getElementById("timer-days");
+  const launchtimerhours = document.getElementById("timer-hours");
+  const launchtimerminutes = document.getElementById("timer-minutes");
+  const launchtimerseconds = document.getElementById("timer-seconds");
+
+  axios
+    .get("https://api.spacexdata.com/v3/launches/next")
+    .then(response => {
+
+      const countDownDate = new Date(response.data.launch_date_utc).getTime();
+      const now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      const distance = countDownDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      launchtimerdays.innerHTML = days;
+      launchtimerhours.innerHTML = hours;
+      launchtimerminutes.innerHTML = minutes;
+      launchtimerseconds.innerHTML = seconds;
+    });
+}
+
+startTimerCountdown = () => {
+  // Update the count down every 1 second
+  setInterval(() => {
+    setLaunchTimer();
+  }, 1000);
 }
